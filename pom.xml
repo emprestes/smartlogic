@@ -51,6 +51,10 @@
 		</plugins>
 	</build>
 
+	<modules>
+		<module>service-impl</module>
+	</modules>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
