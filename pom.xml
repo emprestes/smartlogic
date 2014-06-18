@@ -27,6 +27,17 @@
 					<nohelp>true</nohelp>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<projectNameTemplate>[artifactId]-[version]</projectNameTemplate>
+					<wtpversion>2.0</wtpversion>
+					<downloadSources>false</downloadSources>
+					<downloadJavadocs>false</downloadJavadocs>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
