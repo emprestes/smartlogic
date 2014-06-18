@@ -47,11 +47,18 @@
 			<artifactId>junit</artifactId>
 			<version>${version.junit}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>junit-addons</groupId>
+			<artifactId>junit-addons</artifactId>
+			<version>${version.junit-addons}</version>
+		</dependency>
 	</dependencies>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<version.junit>4.11</version.junit>
+		<version.junit-addons>1.4</version.junit-addons>
 	</properties>
 </project>
