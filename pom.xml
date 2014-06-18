@@ -7,6 +7,16 @@
 	<packaging>pom</packaging>
 	<name>[POM] Projeto SmartLogic</name>
 
+	<developers>
+		<developer>
+			<id>neoiron</id>
+			<name>Prestes, E. M.</name>
+			<email>neoiron@gmail.com</email>
+			<organization />
+			<timezone>-3</timezone>
+		</developer>
+	</developers>
+
 	<build>
 		<plugins>
 			<plugin>
