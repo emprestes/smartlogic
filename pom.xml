@@ -51,6 +51,10 @@
 		</plugins>
 	</build>
 
+	<modules>
+		<module>webservice-jax-ws</module>
+	</modules>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
