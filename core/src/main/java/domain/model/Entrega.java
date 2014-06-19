@@ -6,7 +6,7 @@ public class Entrega implements Serializable {
 
     private static final long serialVersionUID = 8370434011510895872L;
 
-    private CharSequence rota;
+    private String rota;
     private Double autonomia;
     private Double valorLitro;
     private Trecho trecho;
@@ -15,7 +15,7 @@ public class Entrega implements Serializable {
         super();
     }
 
-    public Entrega(CharSequence rota, Double autonomia, Double valorLitro) {
+    public Entrega(String rota, Double autonomia, Double valorLitro) {
         super();
 
         this.rota = rota;
@@ -23,11 +23,11 @@ public class Entrega implements Serializable {
         this.valorLitro = valorLitro;
     }
 
-    public CharSequence getRota() {
+    public String getRota() {
         return rota;
     }
 
-    public void setRota(CharSequence rota) {
+    public void setRota(String rota) {
         this.rota = rota;
     }
 
@@ -53,6 +53,24 @@ public class Entrega implements Serializable {
 
     public void setTrecho(Trecho trecho) {
         this.trecho = trecho;
+    }
+
+    public int getQuantidadeTrechos() {
+        return getTrecho() == null ? 0 : getTrecho().getQuantidade();
+    }
+
+    public void criarRota() {
+        String[] rota = this.rota != null ? this.rota.split(" "): new String[0];
+
+        for (int i = 0; i < rota.length; i++) {
+            if (i == (rota.length - 1)) {
+                break;
+            } else if (i == 0) {
+                setTrecho(new Trecho(rota[i], rota[i + 1]));
+            } else {
+                getTrecho().setProximo(new Trecho(rota[i], rota[i + 1]));
+            }
+        }
     }
 
     /** {@inheritDoc} */

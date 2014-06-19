@@ -15,6 +15,10 @@ public class Trecho implements Serializable, Comparable<Trecho> {
         super();
     }
 
+    public Trecho(String origem, String destino) {
+        this(origem, destino, null);
+    }
+
     public Trecho(String origem, String destino, Double distancia) {
         this();
 
@@ -51,8 +55,24 @@ public class Trecho implements Serializable, Comparable<Trecho> {
         return proximo;
     }
 
-    public void setProxima(Trecho proximo) {
-        this.proximo = proximo;
+    public void setProximo(Trecho proximo) {
+        if (isUltimo()) {
+            this.proximo = proximo;
+        } else {
+            this.proximo.setProximo(proximo);
+        }
+    }
+
+    public boolean isUltimo() {
+        return proximo == null;
+    }
+
+    public int getQuantidade() {
+        if (isUltimo()) {
+            return 1;
+        }
+
+        return 1 + proximo.getQuantidade();
     }
 
     /** {@inheritDoc} */
