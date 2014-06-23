@@ -2,14 +2,44 @@ package domain.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "trecho")
 public class Trecho implements Serializable, Comparable<Trecho> {
 
-    private static final long serialVersionUID = -6121495642429670167L;
+    private static final long serialVersionUID = -3040772213752613287L;
 
+    @SequenceGenerator(initialValue = 1, name = "IdGenerator", sequenceName = "trecho_sequence")
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IdGenerator")
+    @Column(name = "id_trecho", columnDefinition = "integer")
+    private Long id;
+
+    @Column(name = "nm_origem")
     private String origem;
+
+    @Column(name = "nm_destino")
     private String destino;
+
+    @Column(name = "vl_distancia", columnDefinition = "decimal")
     private Double distancia;
+
+    @Transient
     private Trecho proximo;
+
+    @ManyToOne
+    @JoinColumn(name = "id_malha", nullable = false)
+    private MalhaLogistica malhaLogistica;
 
     public Trecho() {
         super();
@@ -25,6 +55,14 @@ public class Trecho implements Serializable, Comparable<Trecho> {
         this.origem = origem;
         this.destino = destino;
         this.distancia = distancia;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getOrigem() {
@@ -49,6 +87,14 @@ public class Trecho implements Serializable, Comparable<Trecho> {
 
     public void setDistancia(Double distancia) {
         this.distancia = distancia;
+    }
+
+    public MalhaLogistica getMalhaLogistica() {
+        return malhaLogistica;
+    }
+
+    public void setMalhaLogistica(MalhaLogistica malhaLogistica) {
+        this.malhaLogistica = malhaLogistica;
     }
 
     public Trecho getProximo() {

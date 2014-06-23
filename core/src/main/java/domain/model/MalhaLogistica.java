@@ -1,24 +1,42 @@
 package domain.model;
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.TreeSet;
+import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "malha")
 public class MalhaLogistica implements Serializable {
 
-    private static final long serialVersionUID = -1628207881226490697L;
+    private static final long serialVersionUID = 5926955875984905810L;
 
+    @SequenceGenerator(initialValue = 1, name = "IdGenerator", sequenceName = "malha_sequence")
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IdGenerator")
+    @Column(name = "id_malha", columnDefinition = "integer")
+    private Long id;
+
+    @Column(name = "nm_malha")
     private String nome;
-    private Collection<Trecho> trechos = new TreeSet<>();
 
-    public MalhaLogistica() {
-        super();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "malhaLogistica")
+    private Set<Trecho> trechos;
+
+    public Long getId() {
+        return id;
     }
 
-    public MalhaLogistica(String nome) {
-        this();
-
-        this.nome = nome;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -29,11 +47,11 @@ public class MalhaLogistica implements Serializable {
         this.nome = nome;
     }
 
-    public Collection<Trecho> getTrechos() {
+    public Set<Trecho> getTrechos() {
         return trechos;
     }
 
-    public void setTrechos(Collection<Trecho> trechos) {
+    public void setTrechos(Set<Trecho> trechos) {
         this.trechos = trechos;
     }
 
