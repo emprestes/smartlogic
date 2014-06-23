@@ -12,6 +12,33 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>org.jvnet.jax-ws-commons.spring</groupId>
+			<artifactId>jaxws-spring</artifactId>
+			<version>1.9</version>
+		</dependency>
+
+		<dependency>
+			<groupId>br.smartlogic</groupId>
+			<artifactId>smartlogic-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>br.smartlogic</groupId>
+			<artifactId>smartlogic-repository-spring-data-jpa</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>br.smartlogic</groupId>
+			<artifactId>smartlogic-service-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>br.smartlogic</groupId>
+			<artifactId>smartlogic-service-impl</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>com.sun.xml.ws</groupId>
 			<artifactId>jaxws-rt</artifactId>
 			<version>2.2.8</version>

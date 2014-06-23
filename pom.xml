@@ -48,6 +48,28 @@
 					<downloadJavadocs>false</downloadJavadocs>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.26</version>
+				<configuration>
+					<contextPath>/smartlogic</contextPath>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<scanTargetPatterns>
+						<scanTargetPattern>
+							<directory>src/main/webapp/WEB-INF</directory>
+							<excludes>
+								<exclude>**/*.jsp</exclude>
+								<exclude>**/*.html</exclude>
+							</excludes>
+							<includes>
+								<include>**/*.xml</include>
+								<include>**/*.properties</include>
+							</includes>
+						</scanTargetPattern>
+					</scanTargetPatterns>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -56,6 +78,18 @@
 	</modules>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>3.2.9.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.1.Final</version>
+		</dependency>
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
