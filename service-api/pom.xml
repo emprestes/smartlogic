@@ -8,4 +8,12 @@
 	</parent>
 	<artifactId>smartlogic-service-api</artifactId>
 	<name>[JAR] API de servico</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>br.smartlogic</groupId>
+			<artifactId>smartlogic-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
 </project>
