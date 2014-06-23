@@ -1,5 +1,7 @@
 package repository.data;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,16 @@ public class TrechoRepositoryDAOTest extends AbstractDAOTest {
         domain = dao.getOne(1L);
 
         Assert.assertNotNull(domain);
+    }
+
+    @Test
+    public void findDistanciaTest() {
+        List<Trecho> trechos;
+
+        trechos = dao.findDistancia("A", "B");
+
+        Assert.assertEquals(1, trechos.size());
+        Assert.assertNotNull(trechos.get(0).getDistancia());
     }
 
     @Test
