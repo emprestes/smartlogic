@@ -16,7 +16,7 @@ public class DefaultEntregaService implements EntregaService {
     private TrechoRepositoryDAO trechoDAO;
 
     @Override
-    public Double calcularCusto(Double autonomia, Double valorLitro, String rota) throws Exception {
+    public Double calcularCusto(String rota, Double autonomia, Double valorLitro) throws Exception {
         return calcularCusto(new Entrega(rota, autonomia, valorLitro));
     }
 
@@ -29,12 +29,14 @@ public class DefaultEntregaService implements EntregaService {
         entrega.criarRota();
         trecho = entrega.getTrecho();
 
-        while (!trecho.isUltimo()) {
-            trecho = trechoDAO.findDistancia(trecho.getOrigem(), trecho.getDestino()).get(0);
-            distancia += trecho.getDistancia();
-        }
+        do {
+            trecho.setDistancia(trechoDAO.findDistancia(trecho.getOrigem(), trecho.getDestino()).get(0));
+            if (!trecho.isUltimo()) {
+                trecho = trecho.getProximo();
+            }
+        } while (!trecho.isUltimo());
 
-        valor = distancia / entrega.getAutonomia();
+        valor = trecho.getDistanciaRota() / entrega.getAutonomia();
 
         return valor * entrega.getValorLitro();
     }
