@@ -4,4 +4,18 @@
 	version="3.0">
 
 	<display-name>SmartLogic WS</display-name>
+
+	<listener>
+		<listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>webservice</servlet-name>
+		<servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>webservice</servlet-name>
+		<url-pattern>/ws</url-pattern>
+	</servlet-mapping>
 </web-app>
