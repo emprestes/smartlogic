@@ -113,12 +113,24 @@ public class Trecho implements Serializable, Comparable<Trecho> {
         return proximo == null;
     }
 
-    public int getQuantidade() {
+    public boolean isNotUltimo() {
+        return !isUltimo();
+    }
+
+    public Integer getQuantidade() {
         if (isUltimo()) {
             return 1;
         }
 
         return 1 + proximo.getQuantidade();
+    }
+
+    public Double getDistanciaTotal() {
+        if (isUltimo()) {
+            return getDistancia();
+        }
+
+        return getDistancia() + proximo.getDistanciaTotal();
     }
 
     /** {@inheritDoc} */
