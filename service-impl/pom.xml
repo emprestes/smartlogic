@@ -8,4 +8,24 @@
 	</parent>
 	<artifactId>smartlogic-service-impl</artifactId>
 	<name>[JAR] Modulo de servico IMPL</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>br.smartlogic</groupId>
+			<artifactId>smartlogic-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>br.smartlogic</groupId>
+			<artifactId>smartlogic-repository-spring-data-jpa</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>br.smartlogic</groupId>
+			<artifactId>smartlogic-service-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
 </project>
