@@ -24,19 +24,18 @@ public class DefaultEntregaService implements EntregaService {
     public Double calcularCusto(Entrega entrega) throws Exception {
         Trecho trecho;
         double valor = 0.0;
-        double distancia = 0.0;
 
         entrega.criarRota();
         trecho = entrega.getTrecho();
 
         do {
             trecho.setDistancia(trechoDAO.findDistancia(trecho.getOrigem(), trecho.getDestino()).get(0));
-            if (!trecho.isUltimo()) {
+            if (trecho.isNotUltimo()) {
                 trecho = trecho.getProximo();
             }
-        } while (!trecho.isUltimo());
+        } while (trecho.isNotUltimo());
 
-        valor = trecho.getDistanciaRota() / entrega.getAutonomia();
+        valor = trecho.getDistanciaTotal() / entrega.getAutonomia();
 
         return valor * entrega.getValorLitro();
     }
