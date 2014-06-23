@@ -31,12 +31,12 @@ public class TrechoRepositoryDAOTest extends AbstractDAOTest {
 
     @Test
     public void findDistanciaTest() {
-        List<Trecho> trechos;
+        List<Double> trechos;
 
         trechos = dao.findDistancia("A", "B");
 
         Assert.assertEquals(1, trechos.size());
-        Assert.assertNotNull(trechos.get(0).getDistancia());
+        Assert.assertNotNull(trechos.get(0));
     }
 
     @Test
