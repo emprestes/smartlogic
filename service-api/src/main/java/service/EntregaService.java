@@ -1,9 +1,12 @@
 package service;
 
 import domain.model.Entrega;
-import domain.model.Trecho;
 
 public interface EntregaService {
 
-    Trecho calcularCusto(Entrega entrega) throws Exception;
+    Double calcularCusto(Double autonomia, Double valorLitro, String rota) throws Exception;
+
+    Double calcularCusto(Double autonomia, Double valorLitro, String... rota) throws Exception;
+
+    Double calcularCusto(Entrega entrega) throws Exception;
 }
