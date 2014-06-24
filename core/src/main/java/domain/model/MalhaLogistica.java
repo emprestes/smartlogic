@@ -29,7 +29,7 @@ public class MalhaLogistica implements Serializable {
     @Column(name = "nm_malha")
     private String nome;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.REMOVE }, mappedBy = "malhaLogistica")
+    @OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.REMOVE }, mappedBy = "malhaLogistica")
     private Set<Trecho> trechos;
 
     public Long getId() {
