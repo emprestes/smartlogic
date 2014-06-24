@@ -3,6 +3,7 @@ package domain.model;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -28,7 +29,7 @@ public class MalhaLogistica implements Serializable {
     @Column(name = "nm_malha")
     private String nome;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "malhaLogistica")
+    @OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.REMOVE }, mappedBy = "malhaLogistica")
     private Set<Trecho> trechos;
 
     public Long getId() {
