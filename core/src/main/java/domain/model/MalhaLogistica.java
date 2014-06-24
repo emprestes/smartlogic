@@ -13,9 +13,18 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 
 @Entity
 @Table(name = "malha")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "malhaLogistica", propOrder = {
+    "id",
+    "nome",
+    "trechos"
+})
 public class MalhaLogistica implements Serializable {
 
     private static final long serialVersionUID = 5926955875984905810L;

@@ -12,9 +12,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 
 @Entity
 @Table(name = "trecho")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "trecho", propOrder = {
+    "destino",
+    "distancia",
+    "id",
+    "origem",
+    "proximo"
+})
 public class Trecho implements Serializable, Comparable<Trecho> {
 
     private static final long serialVersionUID = -3040772213752613287L;
@@ -39,6 +51,7 @@ public class Trecho implements Serializable, Comparable<Trecho> {
 
     @ManyToOne
     @JoinColumn(name = "id_malha", nullable = false)
+    @XmlTransient
     private MalhaLogistica malhaLogistica;
 
     public Trecho() {
