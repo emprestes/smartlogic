@@ -9,6 +9,14 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath*:META-INF/applicationContext.xml
+			/WEB-INF/applicationContext*.xml
+		</param-value>
+	</context-param>
+
 	<servlet>
 		<servlet-name>webservice</servlet-name>
 		<servlet-class>com.sun.xml.ws.transport.http.servlet.WSSpringServlet</servlet-class>
