@@ -1,15 +1,14 @@
 package service.impl;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import repository.data.TrechoRepositoryDAO;
 import service.EntregaService;
 import domain.model.Entrega;
 import domain.model.Trecho;
 
-@Resource
+@Component
 public class DefaultEntregaService implements EntregaService {
 
     @Autowired

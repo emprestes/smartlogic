@@ -2,15 +2,14 @@ package service.impl;
 
 import java.util.Collection;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import repository.data.MalhaLogisticaRepositoryDAO;
 import service.MalhaLogisticaService;
 import domain.model.MalhaLogistica;
 
-@Resource
+@Component
 public class DefaultMalhaLogisticaService implements MalhaLogisticaService {
 
     @Autowired
