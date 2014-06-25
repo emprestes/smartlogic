@@ -26,15 +26,17 @@ public class DefaultEntregaService implements EntregaService {
         if (!trechos.isEmpty()) {
             trecho = trechos.get(0);
         } else {
+            Trecho proximoTrecho;
             String proximoDestino = origem;
             do {
                 trechos = trechoDAO.findDistanciaMinima(proximoDestino);
                 if (trecho == null) {
-                    trecho = trechos.get(0);
+                    trecho = proximoTrecho = trechos.get(0);
                 } else {
-                    trecho.setProximo(trechos.get(0));
+                    proximoTrecho = trechos.get(0);
+                    trecho.setProximo(proximoTrecho);
                 }
-                proximoDestino = trecho.getDestino();
+                proximoDestino = proximoTrecho.getDestino();
             } while (!destino.equalsIgnoreCase(proximoDestino));
         }
 
