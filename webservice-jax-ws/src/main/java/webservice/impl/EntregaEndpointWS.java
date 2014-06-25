@@ -14,7 +14,7 @@ public class EntregaEndpointWS {
     private EntregaService service;
 
     @WebMethod
-    public Double calcularCusto(String rota, Double valorLitro, Double distancia) throws Exception {
-        return service.calcularCusto(rota, valorLitro, distancia);
+    public Double calcularCusto(String origem, String destino, Double autonomia, Double valorLitro) throws Exception {
+        return service.calcularCusto(origem, destino, autonomia, valorLitro);
     }
 }
