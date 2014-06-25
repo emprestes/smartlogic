@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>br.smartlogic</groupId>
+		<artifactId>smartlogic</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>smartlogic-webservice-jax-ws</artifactId>
+	<packaging>war</packaging>
+	<name>[WAR] WebService usando JAX-WS</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.jvnet.jax-ws-commons.spring</groupId>
+			<artifactId>jaxws-spring</artifactId>
+			<version>1.9</version>
+		</dependency>
+
+		<dependency>
+			<groupId>br.smartlogic</groupId>
+			<artifactId>smartlogic-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>br.smartlogic</groupId>
+			<artifactId>smartlogic-repository-spring-data-jpa</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>br.smartlogic</groupId>
+			<artifactId>smartlogic-service-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>br.smartlogic</groupId>
+			<artifactId>smartlogic-service-impl</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>jaxws-rt</artifactId>
+			<version>2.2.8</version>
+		</dependency>
+	</dependencies>
+</project>
