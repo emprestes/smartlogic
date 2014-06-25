@@ -2,5 +2,6 @@
 <dataset>
   <malha id_malha="1" nm_malha="Malha Teste 01" />
   <trecho ID_TRECHO="1" id_malha="1" nm_origem="A" nm_destino="B" vl_distancia="10.0" />
-  <trecho ID_TRECHO="2" id_malha="1" nm_origem="B" nm_destino="C" vl_distancia="15.0" />
+  <trecho ID_TRECHO="2" id_malha="1" nm_origem="A" nm_destino="C" vl_distancia="20.0" />
+  <trecho ID_TRECHO="3" id_malha="1" nm_origem="B" nm_destino="C" vl_distancia="15.0" />
 </dataset>

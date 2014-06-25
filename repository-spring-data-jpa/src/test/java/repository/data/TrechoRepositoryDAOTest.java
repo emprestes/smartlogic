@@ -57,4 +57,11 @@ public class TrechoRepositoryDAOTest extends AbstractDAOTest {
         Assert.assertNotNull(domain);
         Assert.assertNotNull(domain.getId());
     }
+
+    @Test
+    public void findDistanciaMinimaTest() {
+        List<Trecho> results = dao.find("A");
+
+        Assert.assertEquals(Double.valueOf(10.0), results.get(0).getDistancia());
+    }
 }
