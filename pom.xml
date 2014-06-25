@@ -53,6 +53,7 @@
 
 	<modules>
 		<module>core</module>
+		<module>repository-spring-data-jpa</module>
 	</modules>
 
 	<dependencies>
@@ -66,12 +67,14 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${version.junit}</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>junit-addons</groupId>
 			<artifactId>junit-addons</artifactId>
 			<version>${version.junit-addons}</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
