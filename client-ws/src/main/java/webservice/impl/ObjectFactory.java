@@ -24,11 +24,9 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _FindAllResponse_QNAME = new QName("http://impl.webservice/", "findAllResponse");
-    private final static QName _Save_QNAME = new QName("http://impl.webservice/", "save");
     private final static QName _Exception_QNAME = new QName("http://impl.webservice/", "Exception");
-    private final static QName _SaveResponse_QNAME = new QName("http://impl.webservice/", "saveResponse");
-    private final static QName _FindAll_QNAME = new QName("http://impl.webservice/", "findAll");
+    private final static QName _CalcularCusto_QNAME = new QName("http://impl.webservice/", "calcularCusto");
+    private final static QName _CalcularCustoResponse_QNAME = new QName("http://impl.webservice/", "calcularCustoResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: webservice.impl
@@ -38,27 +36,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Save }
+     * Create an instance of {@link CalcularCusto }
      * 
      */
-    public Save createSave() {
-        return new Save();
+    public CalcularCusto createCalcularCusto() {
+        return new CalcularCusto();
     }
 
     /**
-     * Create an instance of {@link FindAllResponse }
+     * Create an instance of {@link CalcularCustoResponse }
      * 
      */
-    public FindAllResponse createFindAllResponse() {
-        return new FindAllResponse();
-    }
-
-    /**
-     * Create an instance of {@link FindAll }
-     * 
-     */
-    public FindAll createFindAll() {
-        return new FindAll();
+    public CalcularCustoResponse createCalcularCustoResponse() {
+        return new CalcularCustoResponse();
     }
 
     /**
@@ -67,48 +57,6 @@ public class ObjectFactory {
      */
     public Exception createException() {
         return new Exception();
-    }
-
-    /**
-     * Create an instance of {@link SaveResponse }
-     * 
-     */
-    public SaveResponse createSaveResponse() {
-        return new SaveResponse();
-    }
-
-    /**
-     * Create an instance of {@link Trecho }
-     * 
-     */
-    public Trecho createTrecho() {
-        return new Trecho();
-    }
-
-    /**
-     * Create an instance of {@link MalhaLogistica }
-     * 
-     */
-    public MalhaLogistica createMalhaLogistica() {
-        return new MalhaLogistica();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FindAllResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://impl.webservice/", name = "findAllResponse")
-    public JAXBElement<FindAllResponse> createFindAllResponse(FindAllResponse value) {
-        return new JAXBElement<FindAllResponse>(_FindAllResponse_QNAME, FindAllResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Save }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://impl.webservice/", name = "save")
-    public JAXBElement<Save> createSave(Save value) {
-        return new JAXBElement<Save>(_Save_QNAME, Save.class, null, value);
     }
 
     /**
@@ -121,21 +69,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SaveResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CalcularCusto }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://impl.webservice/", name = "saveResponse")
-    public JAXBElement<SaveResponse> createSaveResponse(SaveResponse value) {
-        return new JAXBElement<SaveResponse>(_SaveResponse_QNAME, SaveResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://impl.webservice/", name = "calcularCusto")
+    public JAXBElement<CalcularCusto> createCalcularCusto(CalcularCusto value) {
+        return new JAXBElement<CalcularCusto>(_CalcularCusto_QNAME, CalcularCusto.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FindAll }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CalcularCustoResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://impl.webservice/", name = "findAll")
-    public JAXBElement<FindAll> createFindAll(FindAll value) {
-        return new JAXBElement<FindAll>(_FindAll_QNAME, FindAll.class, null, value);
+    @XmlElementDecl(namespace = "http://impl.webservice/", name = "calcularCustoResponse")
+    public JAXBElement<CalcularCustoResponse> createCalcularCustoResponse(CalcularCustoResponse value) {
+        return new JAXBElement<CalcularCustoResponse>(_CalcularCustoResponse_QNAME, CalcularCustoResponse.class, null, value);
     }
 
 }

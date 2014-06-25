@@ -27,6 +27,7 @@ public interface EntregaEndpointWS {
 
     /**
      * 
+     * @param arg3
      * @param arg2
      * @param arg1
      * @param arg0
@@ -45,9 +46,11 @@ public interface EntregaEndpointWS {
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0,
         @WebParam(name = "arg1", targetNamespace = "")
-        Double arg1,
+        String arg1,
         @WebParam(name = "arg2", targetNamespace = "")
-        Double arg2)
+        Double arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        Double arg3)
         throws Exception_Exception
     ;
 

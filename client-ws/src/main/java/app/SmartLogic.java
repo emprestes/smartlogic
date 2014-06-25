@@ -28,7 +28,7 @@ public class SmartLogic {
 
             System.out.println("Malha teste salva com 6 trechos.");
 
-            double valor = entregaWS.calcularCusto("A B D", 10d, 2.5);
+            double valor = entregaWS.calcularCusto("A", "D", 10d, 2.5);
 
             System.out.printf("Valor de custo: %s\n", valor);
         } catch (Exception cause) {
