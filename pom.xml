@@ -93,6 +93,7 @@
 		<module>service-api</module>
 		<module>service-impl</module>
 		<module>webservice-jax-ws</module>
+		<module>client-ws</module>
 	</modules>
 
 	<dependencies>
