@@ -54,6 +54,7 @@
 	<modules>
 		<module>core</module>
 		<module>repository-spring-data-jpa</module>
+		<module>service-api</module>
 	</modules>
 
 	<dependencies>
