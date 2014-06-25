@@ -1,5 +1,7 @@
 package service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,26 +17,49 @@ public class DefaultEntregaService implements EntregaService {
     private TrechoRepositoryDAO trechoDAO;
 
     @Override
+    public Double calcularCusto(String origem, String destino, Double autonomia, Double valorLitro) throws Exception {
+        StringBuffer rota = new StringBuffer(origem);
+        List<Trecho> trechos;
+        Trecho trecho;
+
+        trechos = trechoDAO.find(origem, destino);
+
+        if (!trechos.isEmpty()) {
+            rota.append(' ').append(destino);
+        } else {
+            String proximo = origem;
+            do {
+                trechos = trechoDAO.findDistanciaMinima(proximo);
+                trecho = trechos.get(0);
+                proximo = trecho.getDestino();
+                rota.append(' ').append(proximo);
+            } while (!destino.equalsIgnoreCase(proximo));
+        }
+
+        return calcularCusto(rota.toString(), autonomia, valorLitro);
+    }
+
+    @Override
     public Double calcularCusto(String rota, Double autonomia, Double valorLitro) throws Exception {
         return calcularCusto(new Entrega(rota, autonomia, valorLitro));
     }
 
     /** {@inheritDoc} */
     public Double calcularCusto(Entrega entrega) throws Exception {
-        Trecho trecho;
+        Trecho trecho, proximo;
         double valor = 0.0;
         int totalTrechos = 0;
 
         entrega.criarRota();
-        trecho = entrega.getTrecho();
+        trecho = proximo = entrega.getTrecho();
         totalTrechos = trecho.getQuantidade();
 
         do {
-            trecho.setDistancia(trechoDAO.findDistancia(trecho.getOrigem(), trecho.getDestino()).get(0));
-            if (trecho.isNotUltimo()) {
-                trecho = trecho.getProximo();
+            proximo.setDistancia(trechoDAO.findDistancia(proximo.getOrigem(), proximo.getDestino()).get(0));
+            if (proximo.isNotUltimo()) {
+                proximo = proximo.getProximo();
             }
-        } while (totalTrechos-- > 0);
+        } while (--totalTrechos > 0);
 
         valor = trecho.getDistanciaTotal() / entrega.getAutonomia();
 
